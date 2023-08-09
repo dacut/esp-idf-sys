@@ -428,7 +428,8 @@ pub fn build() -> Result<EspIdfBuildOutput> {
         .env("PATH", &idf.exported_path)
         .env("SDKCONFIG_DEFAULTS", defaults_files)
         .env("IDF_TARGET", &chip_name)
-        .env("PROJECT_DIR", to_cmake_path_list([&workspace_dir])?);
+        .env("PROJECT_DIR", to_cmake_path_list([&workspace_dir])?)
+        .very_verbose(true);
 
     match &tools_install_dir {
         InstallDir::Custom(dir) | InstallDir::Out(dir) | InstallDir::Workspace(dir) => {
