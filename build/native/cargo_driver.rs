@@ -396,7 +396,8 @@ pub fn build() -> Result<EspIdfBuildOutput> {
         .env("IDF_PATH", idf.repository.worktree())
         .env("PATH", &idf.exported_path)
         .env("SDKCONFIG_DEFAULTS", defaults_files)
-        .env("IDF_TARGET", &chip_name);
+        .env("IDF_TARGET", &chip_name)
+        .very_verbose(true);
 
     match &tools_install_dir {
         InstallDir::Custom(dir) | InstallDir::Out(dir) | InstallDir::Workspace(dir) => {
