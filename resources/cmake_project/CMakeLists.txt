@@ -34,4 +34,5 @@ endif()
 
 # used to query the components in the build script
 idf_build_get_property(comps BUILD_COMPONENTS)
+message(STATUS "BUILD_COMPONENTS: ${comps}")
 set(BUILD_COMPONENTS ${comps} CACHE STRING "all esp-idf components" FORCE)
